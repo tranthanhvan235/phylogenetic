@@ -1,6 +1,11 @@
-$bg-color: #ffbcde;
+$bg-color-start: #ffbcde;
+$bg-color-end: #ff758c;
 
 body {
-  background: $bg-color;
+  background: linear-gradient(to right, $bg-color-start, $bg-color-end);
   font-size: 20px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

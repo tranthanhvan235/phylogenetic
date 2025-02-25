@@ -5,7 +5,10 @@
   "author": "tranthanhvan235 <98211651+tranthanhvan235@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
+    "@types/react-bootstrap": "^0.32.37",
+    "axios": "^1.7.9",
     "react": "^19.0.0",
+    "react-bootstrap": "^2.10.9",
     "react-dom": "^19.0.0"
   },
   "scripts": {
@@ -15,8 +18,6 @@
     "preview": "serve dist/",
     "lint": "eslint --ext js,jsx,ts,tsx src/",
     "lint:fix": "eslint --fix --ext js,jsx,ts,tsx src/",
-
-
     "prettier": "prettier --check \"src/**/(*.tsx|*.ts|*.jsx|*.js|*.scss|*.css)\"",
     "prettier:fix": "prettier --write \"src/**/(*.tsx|*.ts|*.jsx|*.js|*.scss|*.css)\""
   },
@@ -44,6 +45,7 @@
     "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-webpack-plugin": "^4.2.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.6.3",
     "mini-css-extract-plugin": "^2.9.2",
