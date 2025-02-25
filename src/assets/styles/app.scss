@@ -1,11 +1,139 @@
+// 🎨 Màu sắc
 $bg-color-start: #ffbcde;
 $bg-color-end: #ff758c;
+$primary-color: #f94b85;
+$hover-color: #f42780;
+$text-color: #333;
+$card-bg: rgba(255, 255, 255, 0.2);
+$shadow-color: rgba(0, 0, 0, 0.15);
+
+// ✨ Hiệu ứng chung
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 body {
   background: linear-gradient(to right, $bg-color-start, $bg-color-end);
   font-size: 20px;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
+  flex-direction: column;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  width: 400px;
+  background: $card-bg;
+  padding: 25px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 5px 15px $shadow-color;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+h1 {
+  font-size: 2rem;
+  color: $text-color;
+  margin-bottom: 15px;
+}
+
+// 🔍 Ô tìm kiếm
+input {
+  padding: 12px;
+  width: 260px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+
+  &:focus {
+    border-color: $primary-color;
+    box-shadow: 0px 0px 8px rgba(249, 75, 133, 0.5);
+  }
+}
+
+// 🔘 Nút tìm kiếm
+button {
+  background: $primary-color;
+  color: white;
+  border: none;
+  padding: 12px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+  transition: background 0.3s ease, transform 0.2s ease-in-out;
+
+  &:hover {
+    background: $hover-color;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+}
+
+// 🌤️ Thẻ hiển thị thời tiết
+.weather-info {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px $shadow-color;
+  margin-top: 20px;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+
+  h2 {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #555;
+    margin: 5px 0;
+  }
+}
+
+// 🔥 Hiệu ứng xuất hiện
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 📱 Responsive
+@media (max-width: 450px) {
+  .container {
+    width: 90%;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .weather-info {
+    padding: 15px;
+  }
 }
