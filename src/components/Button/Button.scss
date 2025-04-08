@@ -1,0 +1,28 @@
+$primary-color: #f94b85;
+$hover-color: #f42780;
+button {
+  background: $primary-color;
+  color: white;
+  border: none;
+  padding: 12px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease-in-out;
+
+  &:hover {
+    background: $hover-color;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+}

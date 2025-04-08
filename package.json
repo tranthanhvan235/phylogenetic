@@ -5,8 +5,15 @@
   "author": "tranthanhvan235 <98211651+tranthanhvan235@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
+    "@khaitd0340/auspice": "^2.59.5",
     "@types/react-bootstrap": "^0.32.37",
-    "axios": "^1.7.9",
+    "axios": "^1.8.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "framer-motion": "^12.6.3",
+    "lucide-react": "^0.487.0",
+    "mysql2": "^3.14.0",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
     "react-dom": "^19.0.0"
@@ -59,5 +66,15 @@
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.0"
   },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tranthanhvan235/phylogenetic.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/tranthanhvan235/phylogenetic/issues"
+  },
+  "homepage": "https://github.com/tranthanhvan235/phylogenetic#readme",
+  "description": ""
 }

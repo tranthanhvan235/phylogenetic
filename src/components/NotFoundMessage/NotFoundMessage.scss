@@ -1,0 +1,72 @@
+.notfound {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background-color: #fff;
+  border: 1px solid #fca5a5;
+  border-radius: 12px;
+  padding: 16px;
+  width: 300px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease-in-out;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__icon {
+    width: 32px;
+    height: 32px;
+    color: #f87171;
+    animation: bounce 1s infinite;
+  }
+
+  &__close {
+    cursor: pointer;
+    color: #9ca3af;
+    font-size: 20px;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #ef4444;
+    }
+  }
+
+  &__message {
+    color: #ef4444;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 8px;
+  }
+
+  &__quote {
+    color: #9ca3af;
+    font-size: 14px;
+    font-style: italic;
+    margin-top: 4px;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translate(50%, -50%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}

@@ -1,0 +1,15 @@
+$primary-color: #f94b85;
+input {
+  padding: 12px;
+  width: 260px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+
+  &:focus {
+    border-color: $primary-color;
+    box-shadow: 0px 0px 8px rgba(249, 75, 133, 0.5);
+  }
+}

@@ -1,0 +1,141 @@
+.app-container {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin-top: 50px;
+}
+
+.title {
+  font-size: 2rem;
+  color: #333;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+}
+
+.search-input {
+  padding: 10px;
+  width: 250px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+
+/* Chỉnh lại màu nút tìm kiếm */
+.search-button {
+  background: #f94b85; /* Màu hồng như ban đầu */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+  transition: background 0.3s ease;
+}
+
+.search-button:hover {
+  background: #f42780; /* Màu hồng đậm khi hover */
+}
+
+.search-button:disabled {
+  background: #ddd;
+  cursor: not-allowed;
+}
+
+.city {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.temperature {
+  font-size: 2rem;
+  color: #ff4500;
+}
+
+.description {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ddd;
+  border-top: 4px solid #4a90e2;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Cấu trúc container và các phần tử con */
+.search-container {
+  display: flex;
+  flex-direction: column; /* Cho phép các phần tử con nằm theo chiều dọc */
+  align-items: flex-start; /* Căn lề trái cho các phần tử */
+  width: 100%;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center; /* Căn giữa các phần tử trong input-wrapper */
+  width: 100%;
+}
+
+.input-wrapper input {
+  width: calc(100% - 100px); /* Chiếm hết chiều rộng trừ đi chiều rộng của nút */
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.input-wrapper button {
+  width: 80px; /* Đặt chiều rộng của nút */
+  padding: 10px;
+  font-size: 16px;
+  background-color: #f94b85; /* Màu hồng như ban đầu */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-left: 10px; /* Khoảng cách giữa input và button */
+  cursor: pointer;
+}
+
+.input-wrapper button:disabled {
+  background-color: #ccc; /* Màu nền khi nút bị vô hiệu */
+  cursor: not-allowed;
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
