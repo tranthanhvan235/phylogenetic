@@ -8,16 +8,10 @@ interface InputFieldProps {
   placeholder: string
 }
 
-const InputField: React.FC<InputFieldProps> = ({ value, onChange, placeholder}: any) => {
+const InputField: React.FC<InputFieldProps> = ({ value, onChange, placeholder }: any) => {
   return (
     <>
-      <input
-        type='text'
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        className='input-field'
-      />
+      <input type='text' value={value} onChange={onChange} placeholder={placeholder} className='input-field' />
     </>
   )
 }
