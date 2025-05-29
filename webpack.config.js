@@ -19,40 +19,30 @@ module.exports = (env, argv) => {
   /** @type {import('webpack').Configuration} **/
   const config = {
     resolve: {
-      extensions: ['.tsx', '.ts', '.jsx', '.js']
+      extensions: ['.tsx', '.ts', '.js', '.jsx']
     },
-    entry: ['./src/index.tsx'],
+    entry: './src/index.tsx',
     module: {
       rules: [
         {
-          test: /\.tsx?$/,
+          test: /\.(js|jsx|ts|tsx)$/,
           exclude: /node_modules/,
-          use: ['babel-loader']
+          use: 'babel-loader'
         },
         {
           test: /\.(s[ac]ss|css)$/,
           use: [
             MiniCssExtractPlugin.loader,
-            {
-              loader: 'css-loader',
-              options: { sourceMap: !isProduction }
-            },
-            {
-              loader: 'sass-loader',
-              options: { sourceMap: !isProduction }
-            }
+            'css-loader',
+            'sass-loader'
           ]
         },
         {
-          test: /\.(png|svg|jpg|gif)$/, 
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                name: isProduction ? 'static/media/[name].[contenthash:6].[ext]' : '[path][name].[ext]'
-              }
-            }
-          ]
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: 'asset/resource',
+          generator: {
+            filename: 'static/media/[name].[hash:6][ext]'
+          }
         },
         {
           test: /\.(eot|ttf|woff|woff2)$/, 
@@ -68,7 +58,7 @@ module.exports = (env, argv) => {
       ]
     },
     output: {
-      filename: 'static/js/main.[contenthash:6].js',
+      filename: 'static/js/[name].[contenthash:6].js',
       path: path.resolve(__dirname, 'dist'),
       publicPath: '/'
     },
@@ -79,12 +69,18 @@ module.exports = (env, argv) => {
       static: {
         directory: path.resolve(__dirname, 'public'),
         watch: true
+      },
+      proxy: {
+        '/api': {
+          target: 'http://localhost:1011',
+          pathRewrite: { '^/api': '' }
+        }
       }
     },
     devtool: isProduction ? false : 'source-map',
     plugins: [
       new MiniCssExtractPlugin({
-        filename: isProduction ? 'static/css/[name].[contenthash:6].css' : '[name].css'
+        filename: 'static/css/[name].[contenthash:6].css'
       }),
       new Dotenv(),
       new CopyWebpackPlugin({
@@ -97,12 +93,11 @@ module.exports = (env, argv) => {
         ]
       }),
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, 'public', 'index.html'),
-        filename: 'index.html'
+        template: './public/index.html'
       }),
-      new ESLintPlugin({
-        extensions: ['.tsx', '.ts', '.js', '.jsx']
-      })
+      // new ESLintPlugin({
+      //   extensions: ['.tsx', '.ts', '.js', '.jsx']
+      // })
     ]
   };
 
@@ -122,7 +117,10 @@ module.exports = (env, argv) => {
       minimizer: [
         `...`,
         new CssMinimizerPlugin()
-      ]
+      ],
+      splitChunks: {
+        chunks: 'all'
+      }
     };
   }
   return config;

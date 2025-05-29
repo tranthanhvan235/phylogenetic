@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  # Frontend Service
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "2305:80"
+    depends_on:
+      - backend
+
+  # Backend Service
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "1011:5000"
+    environment:
+      - WEATHER_API_KEY=${WEATHER_API_KEY}
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+
+volumes:
+  node_modules:
